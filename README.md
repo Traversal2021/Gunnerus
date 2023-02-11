@@ -1,11 +1,12 @@
+<a name="readme-top"></a>
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## ✨ About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-This is the digital twin of Gunnerus vessel. Currently, the website is mainly built for the digital representation of cranes, engines and ship motion.  According to functionality, the page are designed to show real-time and historical data as well as to demonstrate manual control with the keyboard. 
+This is the digital twin of Gunnerus vessel. Currently, the website is mainly built for the digital representation of cranes, engines and ship motion.  According to functionality, the page are designed to show real-time and historical data as well as to demonstrate manual control with the control panel. 
 
-## Page overview
+## ✨ Page overview
 
 [![real_time_screen_shot][product-screenshot]]
 When this page is enabled, the sensor data will be collected from MQTT broker and visualize them with the help of the 3D model map on the left side. A more mathematical representation will be shown on the right side.
@@ -19,78 +20,169 @@ This page demonstrate the manual control of the movement of the crane. With the 
 [![enginee_real_time_screen_shot][product-screenshot]]
 This is a mathematical representation of real-time data.
 
+## ✨ Built With
 
-
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
+* [![python_django][Next.js]][Next-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![React][React.js]][React-url]
+* [![three][three.js]][React-url]
+* [![dash][dash]][Vue-url]
+* [![MQTT][mqtt]][Angular-url]
+* [![psycopg2][psycopg2]][Svelte-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
-## Getting Started
+## ✨ Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+### 👉 Set Up for `Unix`, `MacOS` 
 
-### Prerequisites
+> Install modules via `VENV`  
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+```bash
+$ virtualenv env
+$ source env/bin/activate
+$ pip3 install -r requirements.txt
+```
 
-### Installation
+<br />
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+### 👉 Set Up for `Windows` 
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+> Install modules via `VENV` (windows) 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+```
+$ virtualenv env
+$ .\env\Scripts\activate
+$ pip3 install -r requirements.txt
+```
+
+<br />
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+### 👉 Start/resatrt the app
+
+> Active virtual environment
+For `Unix`, `MacOS` 
+
+```bash
+$ source env/bin/activate
+```
+<br />
+
+For `Windows` 
+
+```bash
+$ .\env\Scripts\activate
+```
+<br />
+```
+
+> Run the app
+
+```bash
+$ cd the/manage.py/folder
+$ python manage.py runserver 0.0.0.0:9000
+```
+
+At this point, the app will response to external connection at the port of 9000. 
+
+<br />
+
+## ✨ Code-base structure
+
+The project is coded using a simple and intuitive structure presented below:
+
+```bash
+< PROJECT ROOT >
+   |
+   |-- core/                               # Implements app configuration
+   |    |-- settings.py                    # Defines Global Settings
+   |    |-- wsgi.py                        # Start the app in production
+   |    |-- urls.py                        # Define URLs served by all apps/nodes
+   |
+   |-- apps/
+   |    |
+   |    |-- home/                          # An app that serves front page and sensor detection
+   |    |    |-- views.py                  # Serve HTML files
+   |    |    |-- urls.py                   # Define the urls  
+   |    |
+   |    |-- api/                           # An app that serves api connection
+   |    |    |-- mqtt.py                   # Connecting with MQTT broker and processing the data
+   |    |    |-- views.py                  # Serve ressponse to API request
+   |    |    |-- urls.py                   # Define routes  
+   |    |
+   |    |-- crane/                         # An app dealing with crane data visualization
+   |    |    |-- views.py                  # Serve HTML pages for real_time, control and historical (both crane and shipmotion)
+   |    |    |-- urls.py                   # Define routes  
+   |    |
+   |    |-- engine/                        # An app that serves engine data
+   |    |    |-- views.py                  # Serve HTML pages for engine real-time data
+   |    |    |-- urls.py                   # Define routes  
+   |    |
+   |    |-- shipmotion/                    # A app that serves the movement of ship motion
+   |    |    |-- views.py                  # Serve HTML pages for real-time shipmotion
+   |    |    |-- urls.py                   # Define some super simple routes 
+   |    |
+   |    |-- authentication/                # Handles auth routes (login and register)
+   |    |    |-- urls.py                   # Define authentication routes  
+   |    |    |-- views.py                  # Handles login and registration  
+   |    |    |-- forms.py                  # Define auth forms (login and register) 
+   |    |
+   |    |-- static/
+   |    |    |-- <css, JS, images>         # CSS files, Javascripts files
+   |    |
+   |    |-- templates/                     # Templates used to render pages
+   |         |-- includes/                 # HTML chunks and components
+   |         |    |-- navigation.html      # Top menu component
+   |         |    |-- sidebar.html         # Sidebar component
+   |         |    |-- footer.html          # App Footer
+   |         |    |-- scripts.html         # Scripts common to all pages
+   |         |
+   |         |-- layouts/                   # Master pages
+   |         |    |-- base-fullscreen.html  # Used by Authentication pages
+   |         |    |-- base.html             # Used by common pages
+   |         |
+   |         |-- accounts/                  # Authentication pages
+   |         |    |-- login.html            # Login page
+   |         |    |-- register.html         # Register page
+   |         |
+   |         |-- crane/                     # Crane pages
+   |         |    |-- crane_base.html       # Basic framework
+   |         |    |-- crane_control.html    # Crane control page
+   |         |    |-- crane_history.html    # Historical data page
+   |         |    |-- crane_real_time.html  # Real time data page
+   |         |
+   |         |-- engine/                    # Engine page
+   |         |    |-- base.html             # Basic framework
+   |         |    |-- real_time.html        # Real time data page
+   |         |
+   |         |-- ship_motion/               # Ship motion pages
+   |         |    |-- ship_motion_base.html # Basic framework
+   |         |    |-- real_time.html        # Real time data page
+   |         |    |-- shipmotion2.html      # Real time data page 2
+   |         |
+   |         |-- home/                      # UI Kit Pages
+   |              |-- front_page.html       # front page
+   |              |-- sensors.html          # sensor detection
+   |              |-- 404-page.html         # 404 page
+   |              |-- *.html                # All other pages
+   |
+   |-- requirements.txt                     # Development modules - SQLite storage
+   |
+   |-- .env                                 # Inject Configuration via Environment
+   |-- manage.py                            # Start the app - Django default start script
+   |
+   |-- ************************************************************************
+```
+
+<br />
+
+
+<!-- Bug EXAMPLES -->
+## Bug examples
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
@@ -99,82 +191,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
