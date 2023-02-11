@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gunnerus</title>
+  <!--  Simple reset to delete the margins  -->
+  <!--  Three.js CDN  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/front_page/GLTFLoader.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/front_page/OrbitControls.js"></script>
+  <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"-->
+  
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/frontPage.css" >
+  
+</head>
+<body>
+  <div class="annotations">
+  <div class="annotation" id="annotation1" width="400" height="400">
+    <p><strong>Crane</strong></p>
+    <p>Slewing angle is: {{SlewingAngle}} degree</p>
+    <!-- <canvas id="crane1" width="400" height="400"></canvas>     -->
+  </div>
+
+  <div class="annotation" id="annotation2">
+    <p><strong>Crane</strong></p>
+    <p>outer boom angle is: {{OuterBoomAngle}} degree</p>
+    <!-- <canvas id="crane2" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation3">
+    <p><strong>Crane</strong></p>
+    <p>extension length outer boom is: {{ExtensionLength}} decimeter</p>
+    <!-- <canvas id="crane3" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation4">
+    <p><strong>Crane</strong></p>
+    <p>main boom angle is: {{mainBoomAngle}} degree</p>
+    <p>Main cylinder pressure is: {{C1Pressure}} bar</p>
+    <!-- <canvas id="crane4" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation5" width="400" height="400">
+    <p><strong>Thruster 1</strong></p>
+    <p> Azimuth Feedback is {{hcxportAzi}} degree </p>
+    <p> RPM Feedback is {{hcxportRpm}}% of desired force </p>
+    <!-- <canvas id="thruster1" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation6">
+    <p><strong>Thruster 2</strong></p>
+    <p> Azimuth Feedback is {{hcxstbdAzi}} degree </p>
+    <p> RPM Feedback is {{hcxstbdRpm}}% of desired force </p>
+    <!-- <canvas id="thruster2" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation7"> 
+    <p><strong>Bow thruster</strong></p>
+    <p> </p>
+    <!-- <canvas id="thruster3" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation8">
+    <p><strong>Engine 1</strong></p>
+    <p>Engine speed is: {{engine1speed}} rpm</p>
+    <p>Lube oil pressure is:{{engine1lubepressure}} bar</p>
+    <p>Cooling water temperature is: {{engine1cooltem}} celsius</p>
+    <p>Boost pressure is: {{engine1pressure}}  bar</p>
+    <p>Engine power is: {{engine1load}} kilowatt</p>
+    <p>Engine exhaust temperature 1 is: {{engine1temp1}} celsius</p>
+    <p>Engine exhaust temperature 2 is: {{engine1temp2}} celsius</p>
+    <p>Fuel rate is: {{engine1fuel}}  liter/min</p>
+    <p>Lube oil temperature is: {{engine1lubetem}}  celsius</p>
+    <!-- <canvas id="engine1" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation9" width="400" height="400"> 
+    <p><strong>Engine 2</strong></p>
+    <p>Engine speed is: {{engine2speed}} rpm</p>
+    <p>Lube oil pressure is:{{engine2lubepressure}} bar</p>
+    <p>Cooling water temperature is: {{engine2cooltem}} celsius</p>
+    <p>Boost pressure is: {{engine2pressure}}  bar</p>
+    <p>Engine power is: {{engine2load}} kilowatt</p>
+    <p>Engine exhaust temperature 1 is: {{engine2temp1}} celsius</p>
+    <p>Engine exhaust temperature 2 is: {{engine2temp2}} celsius</p>
+    <p>Fuel rate is: {{engine2fuel}}  liter/min</p>
+    <p>Lube oil temperature is: {{engine2lubetem}}  celsius</p>
+    <!-- <canvas id="engine2" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation10">    
+    <p><strong>Engine 3</strong></p>
+    <p>Engine speed is: {{engine3speed}} rpm</p>
+    <p>Lube oil pressure is:{{engine3lubepressure}} bar</p>
+    <p>Cooling water temperature is: {{engine3cooltem}} celsius</p>
+    <p>Boost pressure is: {{engine3pressure}}  bar</p>
+    <p>Engine power is: {{engine3load}} kilowatt</p>
+    <p>Engine exhaust temperature 1 is: {{engine3temp1}} celsius</p>
+    <p>Engine exhaust temperature 2 is: {{engine3temp2}} celsius</p>
+    <p>Fuel rate is: {{engine3fuel}}  liter/min</p>
+    <p>Lube oil temperature is: {{engine3lubetem}}  celsius</p>
+    <!-- <canvas id="engine3" width="400" height="400"></canvas> -->
+  </div>
+
+
+  <div class="annotation" id="annotation11">
+    <p><strong>Wave Rader </strong></p>
+    <p> Current speed north vector is: {{wavespeednorth}} m/s</p>
+    <p> Current speed east vector is: {{wavespeedeast}} m/s</p>
+    <p> STW north component is: {{wavenorth}} m/s </p>
+    <p> STW east component is: {{waveeast}} m/s </p>
+    <p> Significant wave height is: {{waveheight}} meters </p>
+    <p> Primary wave peak period is: {{waveprimrypeak}} s</p>
+    <p> Significant wave period is: {{waveperiod}} s</p>
+    <p> Mean period is: {{wavemeanperiod}} s</p>
+    <p> Primary wave peak direction is: {{wavepeak}} degrees</p>
+    <p> Primary wave mean direction is: {{waveprimarymean}} degrees</p>
+    <p> Total energy mean directis:on is: {{wavetotal}} degrees</p>
+    <p> Total energy directional spread is: {{waveenergy}} degrees</p>
+    <!-- <canvas is:d="wave" wis:dth="400" heis:ght="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation12">
+    <p><strong>GPS</strong></p>
+    <p> global north/south position of the ship is: {{latitude}} degree </p>
+    <p> global east/west position of the ship is: {{longitude}} degree </p>
+    <p> speed of the ship is: {{speedkmhr}} km/h / {{speedknots}} knots</p>
+    <p> course of the ship relative to true north degree is: {{coursetrue}} </p>
+    <!-- <canvas id="rader" width="400" height="400"></canvas> -->
+    <!-- <canvas id="GPS" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation13">
+    <p><strong>Rader</strong></p>
+
+  </div>
+
+  <div class="annotation" id="annotation14">
+    <p><strong>Wind speed </strong></p>
+    <p>Wind speed is {{windspeed}} at {{winddirection}} degree </p>
+    <!-- <canvas id="wind" width="400" height="400"></canvas> -->
+  </div>
+
+  <div class="annotation" id="annotation15">
+    <p><strong>Direction </strong></p>
+    <p>  </p>
+    <!-- <canvas id="direction" width="400" height="400"></canvas> -->
+  </div>
+
+</div>
+
+  <canvas class="number" id="number1" width="64" height="64"></canvas>
+  <canvas class="number" id="number2" width="64" height="64"></canvas>
+  <canvas class="number" id="number3" width="64" height="64"></canvas>
+  <canvas class="number" id="number4" width="64" height="64"></canvas>
+    
+  
+ <!--  Our code  -->
+
+
+<div class="cards">
+  <div class="functionCard">
+    <a href="" class="jump"><h1 class="firstTitle">Front page</h1></a>
+  </div>
+
+  <div class="functionCard">
+    <a href="sensor_detection" class="jump"><h1 class="firstTitle">Sensor detection</h1></a>
+  </div>
+
+  <div class="functionCard">
+    <a href="crane/control" class="jump"><h1 class="firstTitle">Crane Control</h1></a>
+  </div>
+
+  <div class="functionCard" id="card1">
+    <h1 class="firstTitle">Real Time Display</h1>
+    <a href="crane/real_time" class="jump"><h2  class="secondTitle">Crane</h2> </a>
+    <a href="engine/real_time" class="jump"><h2  class="secondTitle">Engine</h2> </a>
+    <a href="ship_motion/real_time" class="jump"><h2  class="secondTitle">Ship Motion</h2> </a>
+    <a href="ship_motion/real_time_2" class="jump"><h2  class="secondTitle">Ship Motion 2</h2> </a>
+  </div>
+  <div class="functionCard" id="card1.5">
+    <h1 class="firstTitle">Historical Data</h1>
+    <a href="crane/history" class="jump"><h2  class="secondTitle">Crane and Ship</h2> </a>
+  </div>
+  <div class="functionCard" id="card3">
+    <h1 class="firstTitle">Demo Projects</h1>
+    <a href="prediction/" class="jump"><h2  class="secondTitle">Prediction</h2> </a>
+  </div>
+ </div>
+
+ <script>
+  model_path = "{{ ASSETS_ROOT }}/assembly.glb";
+</script>
+ <script  src="{{ ASSETS_ROOT }}/js/front_page/frontPage.js"> </script>
+
+
+</body>
+</html>
+
+
+

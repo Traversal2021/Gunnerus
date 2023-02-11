@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gunnerus</title>
+  <!--  Simple reset to delete the margins  -->
+  <!--  Three.js CDN  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/front_page/GLTFLoader.js"></script>
+  <script src="{{ ASSETS_ROOT }}/js/front_page/OrbitControls.js"></script>
+  <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"-->
+  
+  <link rel="stylesheet" href="{{ ASSETS_ROOT }}/css/frontPage.css" >
+  
+</head>
+<body>
+
+<div class="cards">
+  <div class="functionCard">
+    <a href="" class="jump"><h1 class="firstTitle">Front page</h1></a>
+  </div>
+
+  <div class="functionCard">
+    <a href="sensor_detection" class="jump"><h1 class="firstTitle">Sensor detection</h1></a>
+  </div>
+
+  <div class="functionCard">
+    <a href="crane/control" class="jump"><h1 class="firstTitle">Crane Control</h1></a>
+  </div>
+
+  <div class="functionCard" id="card1">
+    <h1 class="firstTitle">Real Time Display</h1>
+    <a href="crane/real_time" class="jump"><h2  class="secondTitle">Crane</h2> </a>
+    <a href="engine/real_time" class="jump"><h2  class="secondTitle">Engine</h2> </a>
+    <a href="ship_motion/real_time" class="jump"><h2  class="secondTitle">Ship Motion</h2> </a>
+    <a href="ship_motion/real_time_2" class="jump"><h2  class="secondTitle">Ship Motion 2</h2> </a>
+  </div>
+  <div class="functionCard" id="card1.5">
+    <h1 class="firstTitle">Historical Data</h1>
+    <a href="crane/history" class="jump"><h2  class="secondTitle">Crane and Ship</h2> </a>
+  </div>
+  <div class="functionCard" id="card3">
+    <h1 class="firstTitle">Demo Projects</h1>
+    <a href="prediction/" class="jump"><h2  class="secondTitle">Prediction</h2> </a>
+  </div>
+ </div>
+
+ <div class="ships">
+
+  <img src="{{ ASSETS_ROOT }}/img/front_page_ship.png" alt="A picture of Gunnerus vessel" width="100%">
+
+ </div>
+
+
+</body>
+</html>
+
+
+

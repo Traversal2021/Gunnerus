@@ -1,0 +1,50 @@
+{% extends "prediction/prediction_base.html" %} {%block css%}
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
+<style>
+  /* Split the screen in half */
+  /* .split {
+    display: block;
+    height: 93%;
+    position: fixed;
+    z-index: 1;
+    top: 7%;
+    overflow-x: hidden;
+    padding-top: 20px;
+    overflow: scroll;
+  } */
+
+  /*set the data filter part to the left*/
+  .map_container {
+    width: 100%;
+    left: 0;
+    background-color: #ebf2fa;
+    position: fixed;
+    padding-top: 0%;
+  }
+
+  /*set the graph container part to the left*/
+  .graph_container {
+    width: 25%;
+    right: 0;
+    background-color: #ebf2fa;
+  }
+</style>
+{%endblock css%} {%block main%}
+<div class="split map_container">
+  <div id="container" style="display: block"></div>
+</div>
+
+<!-- graph container -->
+<!-- <div class="split graph_container" id="graph_container">
+  {% block graphContainer %}{% endblock %}
+</div> -->
+
+{%endblock main%} {%block script%}
+
+<script
+  src="{{ ASSETS_ROOT }}/js/prediction/prediction.js"
+  type="module"
+></script>
+
+{%endblock script%}

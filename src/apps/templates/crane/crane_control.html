@@ -1,0 +1,21 @@
+{% extends "crane/crane_base.html" %} {%block crane_css%}
+<style>
+  #gui {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+</style>
+{%endblock crane_css%} {%block main%}
+<div style="display: block">
+  <div id="container" style="display: block"></div>
+</div>
+{%endblock main%} {%block crane_script%}
+<script src="{{ ASSETS_ROOT }}/js/crane/crane_base.js" type="module"></script>
+
+<script
+  src="{{ ASSETS_ROOT }}/js/crane/crane_control.js"
+  type="module"
+></script>
+{%endblock crane_script%}

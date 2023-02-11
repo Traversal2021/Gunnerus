@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<propulsionlibrary name="Client Library" version="1.0">
+  <includejar filename="%fmu%/binaries/win32/RRMViProMa.jar"/>
+  <includejar filename="%fmu%/binaries/win64/RRMViProMa.jar"/>
+  <includejar filename="%fmu%/binaries/linux32/RRMViProMa.jar"/>
+  <includejar filename="%fmu%/binaries/linux64/RRMViProMa.jar"/>
+  <includejar filename="%fmu%/binaries/win32/RRMShipXModelsRev1.jar"/>
+  <includejar filename="%fmu%/binaries/win64/RRMShipXModelsRev1.jar"/>
+  <includejar filename="%fmu%/binaries/linux32/RRMShipXModelsRev1.jar"/>
+  <includejar filename="%fmu%/binaries/linux64/RRMShipXModelsRev1.jar"/>
+</propulsionlibrary>

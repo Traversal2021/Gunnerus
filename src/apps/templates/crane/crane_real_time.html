@@ -1,0 +1,73 @@
+{% extends "crane/crane_base.html" %} {%block crane_css%}
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
+<style>
+  .frame { 
+    position: absolute;
+    top: 0;
+    left: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 75%;
+  overflow: hidden;
+}
+
+#graph_container {
+  position: absolute;
+  font-family: monospace;
+  padding: .5em;
+  background: #444;
+  color: white;
+  overflow-y: scroll;
+  top: 0;
+  right: 0%;
+  width: 25%;
+  height: 100%;
+}
+canvas { 
+  width: 100%;
+  height: 100%;
+}
+
+#resizer-r {
+  position:absolute;
+  cursor: col-resize;
+  height: 100%;
+  width: 1%;
+  top: 0;
+  right:0%;  
+  overflow: hidden;
+}
+
+</style>
+{%endblock crane_css%} {%block main%}
+<div class="frame">
+  <div id="container">
+    <canvas></canvas>
+    <div id="resizer-r"></div>
+  </div> 
+  <div id="graph_container"> </div>
+</div>
+
+  {% block graphContainer %}{% endblock %}
+</div>
+
+{%endblock main%} {%block crane_script%}
+
+<script
+  src="{{ ASSETS_ROOT }}/js/crane/crane_real_time.js"
+  type="module"
+></script>
+
+|<script src="{{ ASSETS_ROOT }}/js/Resizer.js">
+</script>
+{%endblock crane_script%}

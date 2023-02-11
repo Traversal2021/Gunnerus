@@ -1,0 +1,180 @@
+{% extends "engine/base.html" %}
+{% include 'includes/navigation.html' %}
+ {%block css%}
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+<style>
+  img {
+    width: 600px;
+  }
+  .engine_picture {
+    grid-area: image;
+  }
+  .chart_container_1 {
+    grid-area: chart_container_1;
+  }
+  .chart_container_2 {
+    grid-area: chart_container_2;
+  }
+  .chart_container_3 {
+    grid-area: chart_container_3;
+  }
+  .chart_container_4 {
+    grid-area: chart_container_4;
+  }
+
+  .grid_container {
+    display: grid;
+    grid-template-areas:
+      "chart_container_1 chart_container_3"
+      "chart_container_2 chart_container_4";
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .grid_container > div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    width: 400px;
+    height: 300px;
+  }
+</style>
+{%endblock css%} {%block main%}
+
+<!-- Section -->
+<div class="section mx-0">
+  <div class="container">
+    <div class="row justify-content-center mx-0">
+      <div class="col-12 col-md-12 col-lg-12">
+        <!-- Tab Nav -->
+        <div class="nav-wrapper position-relative mb-2">
+          <ul
+            class="nav nav-pills nav-fill flex-column flex-md-row"
+            id="tabs-text"
+            role="tablist"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link mb-sm-3 mb-md-0 active"
+                id="tabs-text-1-tab"
+                data-bs-toggle="tab"
+                href="#tabs-text-1"
+                role="tab"
+                aria-controls="tabs-text-1"
+                aria-selected="true"
+                >Engine 1</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link mb-sm-3 mb-md-0"
+                id="tabs-text-2-tab"
+                data-bs-toggle="tab"
+                href="#tabs-text-2"
+                role="tab"
+                aria-controls="tabs-text-2"
+                aria-selected="false"
+                >Engine 2</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link mb-sm-3 mb-md-0"
+                id="tabs-text-3-tab"
+                data-bs-toggle="tab"
+                href="#tabs-text-3"
+                role="tab"
+                aria-controls="tabs-text-3"
+                aria-selected="false"
+                >Engine 3</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- End of Tab Nav -->
+        <!-- Tab Content -->
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+              <img
+                src="{{ ASSETS_ROOT }}/img/EngineHealthy.png"
+                alt="A picture of Engine"
+              />
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 mb-5 mb-md-7 mb-lg-0">
+              <div class="tab-content" id="tabcontent1">
+                <div
+                  class="tab-pane fade show active"
+                  id="tabs-text-1"
+                  role="tabpanel"
+                  aria-labelledby="tabs-text-1-tab"
+                >
+                  <div class="grid_container">
+                    <div class="chart_container_1" id="engine1_power"></div>
+                    <div
+                      class="chart_container_2"
+                      id="engine1_exhaust_temp"
+                    ></div>
+                    <div class="chart_container_3" id="engine1_speed"></div>
+                    <div
+                      class="chart_container_4"
+                      id="engine1_lub_oil_temp"
+                    ></div>
+                  </div>
+                </div>
+
+                <div
+                  class="tab-pane fade"
+                  id="tabs-text-2"
+                  role="tabpanel"
+                  aria-labelledby="tabs-text-2-tab"
+                >
+                  <div class="grid_container">
+                    <div class="chart_container_1" id="engine2_power"></div>
+                    <div
+                      class="chart_container_2"
+                      id="engine2_exhaust_temp"
+                    ></div>
+                    <div class="chart_container_3" id="engine2_speed"></div>
+                    <div
+                      class="chart_container_4"
+                      id="engine2_lub_oil_temp"
+                    ></div>
+                  </div>
+                </div>
+
+                <div
+                  class="tab-pane fade"
+                  id="tabs-text-3"
+                  role="tabpanel"
+                  aria-labelledby="tabs-text-3-tab"
+                >
+                  <div class="grid_container">
+                    <div class="chart_container_1" id="engine3_power"></div>
+                    <div
+                      class="chart_container_2"
+                      id="engine3_exhaust_temp"
+                    ></div>
+                    <div class="chart_container_3" id="engine3_speed"></div>
+                    <div
+                      class="chart_container_4"
+                      id="engine3_lub_oil_temp"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Tab Content -->
+    </div>
+  </div>
+</div>
+<!-- End of Section -->
+
+{%endblock main%} {%block script%}
+
+<script src="{{ ASSETS_ROOT }}/js/engine/real_time.js" type="module"></script>
+
+{%endblock script%}

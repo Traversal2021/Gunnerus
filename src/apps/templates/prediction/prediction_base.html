@@ -1,0 +1,146 @@
+<!--
+
+=========================================================
+* Pixel Free Bootstrap 5 UI Kit
+=========================================================
+
+* Product Page: https://themesberg.com/product/ui-kit/pixel-free-bootstrap-5-ui-kit
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Contact us if you want to remove it.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- Primary Meta Tags -->
+    <title>Gunnerus</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="title" content="Gunnerus - crane" />
+    <meta name="author" content="NTNU" />
+    <meta
+      name="description"
+      content="Open source and free Bootstrap 5 UI Kit featuring 80 UI components, 5 example pages, and a Gulp and Sass workflow."
+    />
+    <link
+      rel="canonical"
+      href="https://appseed.us/django/django-pixel-bootstrap-uikit"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://demo.themesberg.com/pixel-bootstrap-5-ui-kit"
+    />
+    <meta property="og:title" content="Pixel - Free Bootstrap 5 UI Kit" />
+    <meta
+      property="og:description"
+      content="Open source and free Bootstrap 5 UI Kit featuring 80 UI components, 5 example pages, and a Gulp and Sass workflow."
+    />
+    <meta
+      property="og:image"
+      content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/pixel-lite/pixel-lite-preview.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://demo.themesberg.com/pixel-bootstrap-5-ui-kit"
+    />
+    <meta property="twitter:title" content="Pixel - Free Bootstrap 5 UI Kit" />
+    <meta
+      property="twitter:description"
+      content="Open source and free Bootstrap 5 UI Kit featuring 80 UI components, 5 example pages, and a Gulp and Sass workflow."
+    />
+    <meta
+      property="twitter:image"
+      content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/pixel-lite/pixel-lite-preview.jpg"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="{{ ASSETS_ROOT }}/img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ ASSETS_ROOT }}/img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ ASSETS_ROOT }}/img/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="{{ ASSETS_ROOT }}/img/favicon/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="{{ ASSETS_ROOT }}/img/favicon/safari-pinned-tab.svg"
+      color="#ffffff"
+    />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Fontawesome -->
+    <link
+      type="text/css"
+      href="{{ ASSETS_ROOT }}/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Pixel CSS -->
+    <link
+      type="text/css"
+      href="{{ ASSETS_ROOT }}/css/pixel.css"
+      rel="stylesheet"
+    />
+
+    {%block css%}{%endblock css%}
+  </head>
+  <body>
+    {% include 'includes/navigation.html' %}
+
+    <main class="bg-dark">
+      {% include 'includes/preloader.html' %} {%block main%} {%endblock main%}
+    </main>
+
+    {% include 'includes/scripts.html' %}
+
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"
+    ></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+          "OrbitControls": "https://unpkg.com/three@0.138.0/examples/jsm/controls/OrbitControls.js"
+        }
+      }
+    </script>
+    <script>
+      water_path = "{{ ASSETS_ROOT }}/img/texture/waternormals.jpg";
+      model_path = "{{ ASSETS_ROOT }}/assembly.glb";
+    </script>
+    {%block script%}{%endblock script%}
+  </body>
+</html>
