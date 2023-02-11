@@ -2,36 +2,30 @@
 <!-- ABOUT THE PROJECT -->
 ## ✨ About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Gunnerus Screen Shot][front-page]]
 
 This is the digital twin of Gunnerus vessel. Currently, the website is mainly built for the digital representation of cranes, engines and ship motion.  According to functionality, the page are designed to show real-time and historical data as well as to demonstrate manual control with the control panel. 
 
 ## ✨ Page overview
 
-[![real_time_screen_shot][product-screenshot]]
-When this page is enabled, the sensor data will be collected from MQTT broker and visualize them with the help of the 3D model map on the left side. A more mathematical representation will be shown on the right side.
+[![Sensor detection screen shot][sensor-detection]]
+This page shows the distribution of the sensors and the real time can be presented once the sensor was clicked.
 
-[![historical_screen_shot][product-screenshot]]
-In this page, a recreation of movement for a selected peroid. On the left bottom, there is the controller for the playback. Implemented functon including pause, drag and speed control. The selection and data visualization is shown on the right half side. When the time was selected, a graph about selectable events will pop out. Once the event is selected, the data will be visualized both in a 3D visual way and mathematical way. The process will be shown simutonuously appear in both vein.
 
-[![crane_control_screen_shot][product-screenshot]]
+[![crane control screen shot][crane-control]]
 This page demonstrate the manual control of the movement of the crane. With the control panel, the crane's  can be changed.
 
-[![enginee_real_time_screen_shot][product-screenshot]]
+[![crane real time screen shot][crane-real-time]]
+When this page is enabled, the sensor data will be collected from MQTT broker and visualize them with the help of the 3D model map on the left side. A more mathematical representation will be shown on the right side.
+
+[![historical screen shot][historical-data]]
+In this page, a recreation of movement for a selected peroid. On the left bottom, there is the controller for the playback. Implemented functon including pause, drag and speed control. The selection and data visualization is shown on the right half side. When the time was selected, a graph about selectable events will pop out. Once the event is selected, the data will be visualized both in a 3D visual way and mathematical way. The process will be shown simutonuously appear in both vein.
+
+[![ship motion real time screen shot][ship-motion-real-time]]
+On the map,hip motion data which are collected from MQTT broker will be visualized in a 3D way. A more mathematical representation will be shown on the right side.
+
+[![enginee_real_time_screen_shot][engine-real-time]]
 This is a mathematical representation of real-time data.
-
-## ✨ Built With
-
-* [![python_django][Next.js]][Next-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![React][React.js]][React-url]
-* [![three][three.js]][React-url]
-* [![dash][dash]][Vue-url]
-* [![MQTT][mqtt]][Angular-url]
-* [![psycopg2][psycopg2]][Svelte-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## ✨ Getting Started
@@ -192,32 +186,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[front-page]: images/front_page.PNG
+[sensor-detection]: images/sensor_detection.PNG
+[crane-control]: images/crane_control.PNG
+[crane-real-time]: images/crane_real_time
+[historical-data]: images/historical_data
+[ship-motion-real-time]: images/ship_motion_real_time.PNG
+[engine-real-time]: images/engine_real_time.PNG
