@@ -8,23 +8,23 @@ This is the digital twin of Gunnerus vessel. Currently, the website is mainly bu
 
 ## ✨ Page overview
 
-[![Sensor detection screen shot][sensor-detection]]
+![Sensor detection screen shot][sensor-detection]
 This page shows the distribution of the sensors and the real time can be presented once the sensor was clicked.
 
 
-[![crane control screen shot][crane-control]]
+![crane control screen shot][crane-control]
 This page demonstrate the manual control of the movement of the crane. With the control panel, the crane's  can be changed.
 
-[![crane real time screen shot][crane-real-time]]
+![crane real time screen shot][crane-real-time]
 When this page is enabled, the sensor data will be collected from MQTT broker and visualize them with the help of the 3D model map on the left side. A more mathematical representation will be shown on the right side.
 
-[![historical screen shot][historical-data]]
+![historical screen shot][historical-data]
 In this page, a recreation of movement for a selected peroid. On the left bottom, there is the controller for the playback. Implemented functon including pause, drag and speed control. The selection and data visualization is shown on the right half side. When the time was selected, a graph about selectable events will pop out. Once the event is selected, the data will be visualized both in a 3D visual way and mathematical way. The process will be shown simutonuously appear in both vein.
 
-[![ship motion real time screen shot][ship-motion-real-time]]
+![ship motion real time screen shot][ship-motion-real-time]
 On the map,hip motion data which are collected from MQTT broker will be visualized in a 3D way. A more mathematical representation will be shown on the right side.
 
-[![enginee_real_time_screen_shot][engine-real-time]]
+![enginee_real_time_screen_shot][engine-real-time]
 This is a mathematical representation of real-time data.
 
 <!-- GETTING STARTED -->
