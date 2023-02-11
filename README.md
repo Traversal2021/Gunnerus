@@ -2,7 +2,7 @@
 <!-- ABOUT THE PROJECT -->
 ## ✨ About The Project
 
-[![Gunnerus Screen Shot][front-page]]
+![Gunnerus Screen Shot][front-page]
 
 This is the digital twin of Gunnerus vessel. Currently, the website is mainly built for the digital representation of cranes, engines and ship motion.  According to functionality, the page are designed to show real-time and historical data as well as to demonstrate manual control with the control panel. 
 
